@@ -33,11 +33,11 @@ export function Layout() {
             <NavLink to="/" end className={navLinkClass}>
               Home
             </NavLink>
-            <NavLink to="/services" className={navLinkClass}>
-              Services
-            </NavLink>
             <NavLink to="/about" className={navLinkClass}>
               About
+            </NavLink>
+            <NavLink to="/services" className={navLinkClass}>
+              Services
             </NavLink>
             <NavLink to="/contact" className={navLinkClass}>
               Contact
@@ -85,8 +85,8 @@ export function Layout() {
               <h3>Pages</h3>
               <nav className="footer-links" aria-label="Footer">
                 <NavLink to="/">Home</NavLink>
-                <NavLink to="/services">Services</NavLink>
                 <NavLink to="/about">About</NavLink>
+                <NavLink to="/services">Services</NavLink>
                 <NavLink to="/contact">Contact</NavLink>
               </nav>
             </div>
