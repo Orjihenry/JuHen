@@ -66,42 +66,49 @@ export function Layout() {
       <Outlet />
 
       <footer className="footer">
-        <div className="wrap footer-grid">
-          <div>
-            <h3>JuHen Cleaning Services</h3>
-            <p>
-              Residential house cleaning for families who want a home that feels
-              looked after—without doing it themselves.
-            </p>
+        <div className="footer-inner">
+          <div className="footer-grid">
+            <div className="footer-brand">
+              <NavLink className="logo footer-logo" to="/">
+                <span className="logo-mark">JH</span>
+                JuHen Cleaning
+              </NavLink>
+              <p>
+                Residential, commercial, and specialty cleaning for spaces that
+                should feel looked after—without you doing it yourself.
+              </p>
+              <NavLink className="btn btn-primary" to="/contact">
+                Free estimate
+              </NavLink>
+            </div>
+            <div>
+              <h3>Pages</h3>
+              <nav className="footer-links" aria-label="Footer">
+                <NavLink to="/">Home</NavLink>
+                <NavLink to="/services">Services</NavLink>
+                <NavLink to="/about">About</NavLink>
+                <NavLink to="/contact">Contact</NavLink>
+              </nav>
+            </div>
+            <div>
+              <h3>Contact</h3>
+              <div className="footer-links">
+                <span>Mon–Fri 8am–6pm</span>
+                <span>Saturday by appointment</span>
+                <a href="tel:+15551203480">(555) 120-3480</a>
+                <a href="mailto:hello@juhencleaning.com">
+                  hello@juhencleaning.com
+                </a>
+              </div>
+            </div>
           </div>
-          <div>
-            <h3>Pages</h3>
-            <p>
-              <NavLink to="/">Home</NavLink>
-              <br />
-              <NavLink to="/services">Services</NavLink>
-              <br />
-              <NavLink to="/about">About</NavLink>
-              <br />
-              <NavLink to="/contact">Contact</NavLink>
-            </p>
+          <div className="legal">
+            <span>
+              © {new Date().getFullYear()} JuHen Cleaning Services. All rights
+              reserved.
+            </span>
+            <span>Insured · Bonded · Locally owned</span>
           </div>
-          <div>
-            <h3>Contact</h3>
-            <p>
-              Mon–Fri 8am–6pm
-              <br />
-              Saturday by appointment
-              <br />
-              <a href="tel:+15551203480">(555) 120-3480</a>
-              <br />
-              <a href="mailto:hello@juhencleaning.com">hello@juhencleaning.com</a>
-            </p>
-          </div>
-        </div>
-        <div className="wrap legal">
-          © {new Date().getFullYear()} JuHen Cleaning Services. All rights
-          reserved.
         </div>
       </footer>
     </div>
