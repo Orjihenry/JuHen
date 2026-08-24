@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { services, testimonials } from '../data'
+import { reasons, services } from '../data'
 import { usePageTitle } from '../usePageTitle'
 
 export function HomePage() {
@@ -73,7 +73,7 @@ export function HomePage() {
         <div className="wrap">
           <div className="section-head">
             <p className="eyebrow">Services</p>
-            <h2>Cleaning built around how you actually use the space.</h2>
+            <h2>House cleaning built around how you actually live.</h2>
             <p className="lede">
               Residential, commercial, move-in and move-out, post-construction,
               and bi-weekly plans. Pricing depends on size, frequency, and the
@@ -103,26 +103,30 @@ export function HomePage() {
       <section className="section">
         <div className="wrap">
           <div className="section-head">
-            <p className="eyebrow">Neighbors</p>
-            <h2>Homes that stay easier to live in.</h2>
+            <p className="eyebrow">Why count on us</p>
+            <h2>People you recognize, a checklist you can see, and a quote that stays put.</h2>
+            <p className="lede">
+              We are a small local team—not a rotating franchise crew. You get
+              the same standard on every visit, and we tell you before anything
+              changes.
+            </p>
           </div>
-          <div className="testimonials">
-            {testimonials.map((item) => (
-              <figure className="quote" key={item.name}>
-                <div className="stars" aria-label="5 stars">
-                  ★★★★★
+          <div className="cards">
+            {reasons.map((reason) => (
+              <article className="card" key={reason.title}>
+                <div className="icon" aria-hidden="true">
+                  {reason.icon}
                 </div>
-                <blockquote>
-                  <p>“{item.quote}”</p>
-                </blockquote>
-                <footer>
-                  {item.name}
-                  <br />
-                  <span className="muted">{item.detail}</span>
-                </footer>
-              </figure>
+                <h3>{reason.title}</h3>
+                <p>{reason.copy}</p>
+              </article>
             ))}
           </div>
+          <p className="section-cta">
+            <Link className="btn btn-ghost" to="/about">
+              Meet the team
+            </Link>
+          </p>
         </div>
       </section>
     </main>

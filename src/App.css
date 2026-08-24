@@ -144,7 +144,25 @@
 }
 
 .hero {
-  padding: 36px 0 72px;
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  min-height: 540px;
+  padding: 56px 0 80px;
+  background: #10221f url('/hero-home.jpg') center / cover no-repeat;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    105deg,
+    rgba(10, 22, 20, 0.78) 0%,
+    rgba(10, 22, 20, 0.5) 42%,
+    rgba(10, 22, 20, 0.28) 100%
+  );
 }
 
 .hero-grid {
@@ -152,6 +170,24 @@
   grid-template-columns: 1.05fr 0.95fr;
   gap: 48px;
   align-items: center;
+}
+
+.hero h1,
+.hero .stats strong {
+  color: #fff;
+}
+
+.hero .lede,
+.hero .stats span {
+  color: #d8e6e2;
+}
+
+.hero .eyebrow {
+  color: var(--gold);
+}
+
+.hero .btn-ghost {
+  background: rgba(255, 252, 247, 0.94);
 }
 
 .eyebrow {
@@ -648,6 +684,11 @@ textarea {
   .hero-card,
   .about-panel {
     min-height: auto;
+  }
+
+  .hero {
+    min-height: 0;
+    padding: 36px 0 48px;
   }
 
   .footer-inner {
