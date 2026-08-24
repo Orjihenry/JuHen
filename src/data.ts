@@ -76,23 +76,20 @@ export const services = [
   },
 ]
 
-export const testimonials = [
+export const reasons = [
   {
-    quote:
-      'JuHen has been in our home every other week for a year. They are punctual, careful with our kids’ rooms, and the house actually smells like a home—not chemicals.',
-    name: 'Maya R.',
-    detail: 'Biweekly client · 4-bedroom',
+    icon: '◎',
+    title: 'Experienced and friendly staff',
+    copy: 'We are a dedicated team of experienced and friendly staff.',
   },
   {
-    quote:
-      'The move-out clean saved our deposit. They sent photos, followed our list, and finished on the day they promised.',
-    name: 'Daniel K.',
-    detail: 'Move-out clean',
+    icon: '☰',
+    title: 'Friendly scheduling',
+    copy: 'We are flexible and can work around your schedule. We are also available to work on short notice.',
   },
   {
-    quote:
-      'I work long hours. Knowing someone trustworthy is handling the bathrooms and kitchen is worth every dollar.',
-    name: 'Priya S.',
-    detail: 'Weekly client · condo',
+    icon: '✓',
+    title: 'Personalized service',
+    copy: 'We tailor our services to your needs and preferences. We are flexible and can work around your schedule.',
   },
 ]
