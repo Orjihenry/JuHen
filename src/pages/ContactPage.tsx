@@ -1,4 +1,4 @@
-import { EstimateForm } from '../components/EstimateForm'
+import { ContactForm } from '../components/ContactForm'
 import { usePageTitle } from '../usePageTitle'
 
 export function ContactPage() {
@@ -8,7 +8,7 @@ export function ContactPage() {
       <section className="page-hero">
         <div className="wrap">
           <p className="eyebrow">Contact</p>
-          <h1>Tell us what you need. We’ll send a quote.</h1>
+          <h1>We are more than happy to hear from you.</h1>
           <p className="lede">
             Serving homes and workplaces within 25 miles. Typical reply time is
             under one business day.
@@ -38,7 +38,7 @@ export function ContactPage() {
                 </a>
               </p>
             </div>
-            <EstimateForm />
+            <ContactForm />
           </div>
         </div>
       </section>

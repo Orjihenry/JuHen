@@ -14,22 +14,43 @@ export function EstimateForm() {
     <form className="form" onSubmit={onSubmit}>
       <div className="form-row">
         <label>
-          Full name
-          <input name="name" required autoComplete="name" />
+          First name *
+          <input name="first-name" type="text" required autoComplete="first-name" />
         </label>
         <label>
-          Phone
+          Last name
+          <input name="last-name" type="text" required autoComplete="last-name" />
+        </label>
+      </div>
+      <div className="form-row">
+        <label>
+          Email *
+          <input name="email" type="email" required autoComplete="email" />
+        </label>
+        <label>
+          Phone *
           <input name="phone" type="tel" required autoComplete="tel" />
         </label>
       </div>
       <label>
-        Email
-        <input name="email" type="email" required autoComplete="email" />
+        Address *
+        <input name="address" type="text" required autoComplete="address" />
       </label>
       <div className="form-row">
         <label>
-          Service
-          <select name="service" defaultValue="residential">
+          City *
+          <input name="city" type="text" required autoComplete="city" />
+        </label>
+        <label>
+          Postal code *
+          <input name="postal-code" type="text" required autoComplete="postal-code" />
+        </label>
+      </div>
+      <div className="form-row">
+        <label>
+          Service *
+          <select name="service" defaultValue="choose">
+            <option value="choose">Choose an option</option>
             {services.map((service) => (
               <option value={service.slug} key={service.slug}>
                 {service.title}
@@ -38,19 +59,56 @@ export function EstimateForm() {
           </select>
         </label>
         <label>
-          Space size
+          Square footage
+          <input type="text" name="square footage" id="square footage" />
+        </label>
+      </div>
+      <div className="form-row">
+      <label>
+          Number of Bedrooms *
           <select name="size" defaultValue="medium">
-            <option value="small">Studio / 1 bed or small suite</option>
-            <option value="medium">2–3 bedroom or mid-size office</option>
-            <option value="large">4+ bedroom or large floor</option>
-            <option value="other">Not sure / other</option>
+            <option value="choose">Choose an option</option>
+            <option value="1">1 Bedroom</option>
+            <option value="2">2 Bedrooms</option>
+            <option value="3">3 Bedrooms</option>
+            <option value="4">4+ Bedrooms</option>
+          </select>
+        </label>
+        <label>
+          Number of Bathrooms *
+          <select name="size" defaultValue="medium">
+            <option value="choose">Choose an option</option>
+            <option value="1">1 Bathroom</option>
+            <option value="2">2 Bathrooms</option>
+            <option value="3">3 Bathrooms</option>
+            <option value="4+">4+ Bathrooms</option>
           </select>
         </label>
       </div>
-      <label>
-        Notes (pets, access, problem areas)
-        <textarea name="notes" />
-      </label>
+      <div className="form-row">
+        <label>
+          Type of cleaning required *
+          <select name="size" defaultValue="medium">
+            <option value="choose">Choose an option</option>
+            <option value="standard">Standard Cleaning</option>
+            <option value="deep">Deep Cleaning</option>
+            <option value="move-in">Move-in/out Cleaning</option>
+            <option value="airbnb">Airbnb Turnover Cleaning</option>
+            <option value="construction">Post-Construction Cleaning</option>
+          </select>
+        </label>
+        <label>
+          Pets in the home *
+          <select name="size" defaultValue="medium">
+            <option value="choose">Choose an option</option>
+            <option value="no">No Pets</option>
+            <option value="cats">Cats</option>
+            <option value="dogs">Dogs</option>
+            <option value="multiple">Multiple Pets</option>
+            <option value="other">Other</option>
+          </select>
+        </label>
+      </div>
       <button className="btn btn-primary" type="submit">
         Send request
       </button>

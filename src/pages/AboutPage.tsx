@@ -26,7 +26,7 @@ export function AboutPage() {
           <h1>Small team. Same faces. Homes that feel looked after.</h1>
           <p className="lede">
             JuHen started because most busy households do not need a franchise
-            script—they need reliable people who show up, do the work, and
+            script, they need reliable people who show up, do the work, and
             leave the home ready to live in.
           </p>
         </div>

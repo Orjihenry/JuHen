@@ -47,7 +47,7 @@ export function Layout() {
             <a className="phone" href="tel:+15551203480">
               (555) 120-3480
             </a>
-            <NavLink className="btn btn-primary" to="/contact">
+            <NavLink className="btn btn-primary" to="/estimate">
               Free estimate
             </NavLink>
             <button
@@ -77,7 +77,7 @@ export function Layout() {
                 Residential, commercial, and specialty cleaning for spaces that
                 should feel looked after—without you doing it yourself.
               </p>
-              <NavLink className="btn btn-primary" to="/contact">
+              <NavLink className="btn btn-primary" to="/estimate">
                 Free estimate
               </NavLink>
             </div>
