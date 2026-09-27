@@ -17,7 +17,7 @@ export function HomePage() {
               room-by-room checklist, and treat your space like it is ours.
             </p>
             <div className="hero-actions">
-              <Link className="btn btn-primary" to="/contact">
+              <Link className="btn btn-primary" to="/estimate">
                 Request an estimate
               </Link>
               <Link className="btn btn-ghost" to="/services">

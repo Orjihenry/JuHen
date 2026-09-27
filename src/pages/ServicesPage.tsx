@@ -48,7 +48,7 @@ export function ServicesPage() {
               recommend a plan and send a clear estimate.
             </p>
           </div>
-          <Link className="btn btn-primary" to="/contact">
+          <Link className="btn btn-primary" to="/estimate">
             Request an estimate
           </Link>
         </div>
