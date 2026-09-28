@@ -27,7 +27,7 @@ export function Layout() {
         <div className="wrap header-inner">
           <NavLink className="logo" to="/">
             <span className="logo-mark">JH</span>
-            JuHen Cleaning
+            <span className="logo-text">JuHen Cleaning</span>
           </NavLink>
           <nav className={`nav${menuOpen ? ' open' : ''}`} aria-label="Primary">
             <NavLink to="/" end className={navLinkClass}>
@@ -42,13 +42,17 @@ export function Layout() {
             <NavLink to="/contact" className={navLinkClass}>
               Contact
             </NavLink>
+            <NavLink className="btn btn-primary nav-estimate" to="/estimate">
+              Free estimate
+            </NavLink>
           </nav>
           <div className="header-cta">
             <a className="phone" href="tel:+15551203480">
               (555) 120-3480
             </a>
-            <NavLink className="btn btn-primary" to="/estimate">
-              Free estimate
+            <NavLink className="btn btn-primary btn-header" to="/estimate">
+              <span className="btn-label-full">Free estimate</span>
+              <span className="btn-label-short">Estimate</span>
             </NavLink>
             <button
               className="menu-toggle"
