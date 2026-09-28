@@ -4,7 +4,6 @@ export const services = [
     icon: '⌂',
     title: 'Residential Cleaning',
     copy: 'Standard house cleaning for homes, condos, and apartments—kitchens, baths, floors, and living spaces.',
-    price: 'Custom quote',
     details:
       'Day-to-day residential cleaning for occupied homes. We follow a room-by-room checklist so kitchens, bathrooms, and living areas stay consistently fresh.',
     includes: [
@@ -19,7 +18,6 @@ export const services = [
     icon: '▣',
     title: 'Office Cleaning',
     copy: 'Desks, meeting rooms, and reception areas cleaned around your workday so the suite is ready for the next morning.',
-    price: 'Custom quote',
     details:
       'Scheduled or after-hours cleaning for professional offices and shared suites. We work around your hours so workstations and common areas are ready for the next business day.',
     includes: [
@@ -34,7 +32,6 @@ export const services = [
     icon: '▦',
     title: 'Commercial Cleaning',
     copy: 'Retail, shops, and small commercial spaces—public areas, restrooms, and floors that need to look open-ready.',
-    price: 'Custom quote',
     details:
       'Cleaning for storefronts, shops, and other small commercial spaces. We focus on the areas customers see first and leave the space ready for the next open.',
     includes: [
@@ -49,7 +46,6 @@ export const services = [
     icon: '⇄',
     title: 'Airbnb turnover',
     copy: 'Guest-ready resets between stays—beds, baths, kitchen, and a quick walkthrough so the listing is ready to book again.',
-    price: 'Custom quote',
     details:
       'Short-term rental turnovers between guests. We reset the unit to listing standard so the next arrival walks into a clean, stocked-looking space.',
     includes: [
