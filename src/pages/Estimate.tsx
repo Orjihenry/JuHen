@@ -10,19 +10,14 @@ export function Estimate() {
           <p className="eyebrow">Estimate</p>
           <h1>Get a free estimate</h1>
           <p className="lede">
-            Tell us what you need and we'll get back to you with a free estimate.
+            Tell us about the job, pick a time, and leave your contact
+            details. We’ll send a clear estimate.
           </p>
         </div>
       </section>
       <section className="section">
         <div className="wrap">
-            <div className="booking">
-                <div className="quote-block">
-
-                </div>
-                
-                <EstimateForm />
-            </div>
+          <EstimateForm />
         </div>
       </section>
     </main>
