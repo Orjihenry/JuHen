@@ -87,7 +87,6 @@ export function HomePage() {
                 </div>
                 <h3>{service.title}</h3>
                 <p>{service.copy}</p>
-                <p className="price">{service.price}</p>
               </article>
             ))}
           </div>

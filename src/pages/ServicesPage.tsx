@@ -32,7 +32,6 @@ export function ServicesPage() {
                     <li key={item}>{item}</li>
                   ))}
                 </ul>
-                <p className="price">{service.price}</p>
               </div>
             </article>
           ))}
