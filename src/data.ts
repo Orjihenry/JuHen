@@ -185,6 +185,44 @@ export const faqs = [
   },
 ]
 
+export const reviews = [
+  {
+    quote:
+      'They’ve been coming every two weeks since last winter. The house actually stays ahead of the kids and the dog, and I stopped apologizing when people drop by.',
+    name: 'Sarah M.',
+    place: 'St. John’s',
+    service: 'Bi-weekly residential',
+  },
+  {
+    quote:
+      'We leave a key and come home to a reset. Same two people most visits. No upsells, no mystery charges—just the checklist we agreed on.',
+    name: 'Daniel & Kate',
+    place: 'Mount Pearl',
+    service: 'Standard home clean',
+  },
+  {
+    quote:
+      'Our office is ready before the next morning. They work around our hours and don’t leave the place smelling like a chemical factory.',
+    name: 'Priya S.',
+    place: 'Downtown St. John’s',
+    service: 'Office cleaning',
+  },
+  {
+    quote:
+      'Turnovers used to eat a whole afternoon. JuHen has the unit guest-ready between check-out and check-in. Guests noticed. Our reviews did too.',
+    name: 'Jenna P.',
+    place: 'Paradise',
+    service: 'Airbnb turnover',
+  },
+  {
+    quote:
+      'Booked a deep clean after we moved in. They told us what wasn’t included, priced the oven and windows up front, and the quote didn’t change.',
+    name: 'The Power family',
+    place: 'Torbay',
+    service: 'Move-in deep clean',
+  },
+]
+
 export const reasons = [
   {
     icon: '◎',

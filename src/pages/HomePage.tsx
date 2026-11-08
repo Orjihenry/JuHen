@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { ReviewCarousel } from '../components/ReviewCarousel'
 import { reasons, services } from '../data'
 import { usePageTitle } from '../usePageTitle'
 
@@ -125,6 +126,20 @@ export function HomePage() {
               Meet the team
             </Link>
           </p>
+        </div>
+      </section>
+
+      <section className="section review-section">
+        <div className="wrap">
+          <div className="section-head">
+            <p className="eyebrow">Reviews</p>
+            <h2>What people say after we leave.</h2>
+            <p className="lede">
+              Homes, offices, and turnovers around the city. Same checklist,
+              same faces, a quote that doesn’t move.
+            </p>
+          </div>
+          <ReviewCarousel />
         </div>
       </section>
     </main>
