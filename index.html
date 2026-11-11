@@ -5,6 +5,7 @@
     <link rel="icon" href="/favico.ico" sizes="any" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
     <meta
       name="description"
       content="JuHen Cleaning Services — trusted residential house cleaning, deep cleans, and recurring maid service. Book a free estimate."
@@ -16,6 +17,20 @@
       rel="stylesheet"
     />
     <title>JuHen Cleaning Services | Residential & Commercial</title>
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('juhen-theme')
+          var theme =
+            stored === 'dark' || stored === 'light'
+              ? stored
+              : window.matchMedia('(prefers-color-scheme: dark)').matches
+                ? 'dark'
+                : 'light'
+          document.documentElement.dataset.theme = theme
+        } catch (e) {}
+      })()
+    </script>
   </head>
   <body>
     <div id="root"></div>

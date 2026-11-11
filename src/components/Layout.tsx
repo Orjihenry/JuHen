@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { NavLink, Outlet, useLocation } from 'react-router-dom'
+import { useTheme } from '../useTheme'
 
 const navLinkClass = ({ isActive }: { isActive: boolean }) =>
   isActive ? 'active' : undefined
@@ -7,6 +8,7 @@ const navLinkClass = ({ isActive }: { isActive: boolean }) =>
 export function Layout() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const { theme, toggleTheme } = useTheme()
   const location = useLocation()
 
   useEffect(() => {
@@ -82,6 +84,26 @@ export function Layout() {
               <span className="btn-label-full">Free estimate</span>
               <span className="btn-label-short">Estimate</span>
             </NavLink>
+            <button
+              className="theme-toggle"
+              type="button"
+              aria-label={
+                theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'
+              }
+              aria-pressed={theme === 'dark'}
+              onClick={toggleTheme}
+            >
+              {theme === 'dark' ? (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="12" cy="12" r="4" />
+                  <path d="M12 3v2M12 19v2M5 12H3M21 12h-2M6.2 6.2l1.4 1.4M16.4 16.4l1.4 1.4M6.2 17.8l1.4-1.4M16.4 7.6l1.4-1.4" />
+                </svg>
+              ) : (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M21 14.5A8.5 8.5 0 1 1 9.5 3a7 7 0 0 0 11.5 11.5Z" />
+                </svg>
+              )}
+            </button>
             <button
               className="menu-toggle"
               type="button"

@@ -11,9 +11,10 @@
   position: sticky;
   top: 0;
   z-index: 20;
-  background: rgba(246, 243, 236, 0.88);
+  background: var(--header-bg);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid transparent;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .header.scrolled {
@@ -129,12 +130,35 @@
   display: none;
 }
 
+.theme-toggle {
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--white);
+  color: var(--ink);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.theme-toggle svg {
+  width: 18px;
+  height: 18px;
+}
+
+.theme-toggle:hover {
+  background: var(--teal-soft);
+}
+
 .menu-toggle {
   display: none;
   background: none;
   border: 1px solid var(--line);
   border-radius: 10px;
   padding: 8px 10px;
+  color: var(--ink);
 }
 
 .page-hero {
@@ -502,6 +526,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .header,
   .faq-answer,
   .faq-question::after {
     transition: none;
@@ -519,7 +544,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 24px;
-  background: var(--teal);
+  background: var(--teal-fill);
   color: #e8f4f1;
   border-radius: 28px;
   padding: 32px 36px;
@@ -609,7 +634,7 @@
 }
 
 .about-panel {
-  background: var(--teal);
+  background: var(--teal-fill);
   color: #e8f4f1;
   border-radius: 28px;
   padding: 36px;
@@ -739,7 +764,7 @@
   width: 46px;
   height: 46px;
   border-radius: 50%;
-  background: var(--teal);
+  background: var(--teal-fill);
   color: #e8f4f1;
   display: grid;
   place-items: center;
@@ -804,7 +829,7 @@
 
 .review-dot.is-active {
   width: 22px;
-  background: var(--teal);
+  background: var(--teal-fill);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -824,7 +849,7 @@
 }
 
 .quote-block {
-  background: var(--teal);
+  background: var(--teal-fill);
   color: #e8f4f1;
   padding: 40px;
 }
@@ -1237,7 +1262,7 @@ label {
 }
 
 .calendar-day.is-selected {
-  background: var(--teal);
+  background: var(--teal-fill);
   color: #fff;
 }
 
@@ -1246,7 +1271,7 @@ label {
 }
 
 .calendar-day:disabled {
-  color: #c4bbb0;
+  color: var(--disabled);
   cursor: not-allowed;
 }
 
@@ -1399,6 +1424,11 @@ textarea {
     flex-shrink: 0;
   }
 
+  .theme-toggle {
+    width: 38px;
+    height: 38px;
+  }
+
   .btn-header {
     padding: 8px 12px;
     font-size: 0.82rem;
@@ -1506,7 +1536,7 @@ textarea {
     position: sticky;
     bottom: 12px;
     z-index: 3;
-    background: var(--teal);
+    background: var(--teal-fill);
     color: #d7eee9;
     border-radius: 14px;
     padding: 12px 16px;
