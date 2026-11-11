@@ -132,11 +132,6 @@ export function HomePage() {
               </article>
             ))}
           </div>
-          <p className="section-cta">
-            <Link className="btn btn-ghost" to="/about">
-              Meet the team
-            </Link>
-          </p>
         </div>
       </section>
 
