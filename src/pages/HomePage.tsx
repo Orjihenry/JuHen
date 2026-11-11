@@ -10,7 +10,7 @@ export function HomePage() {
       <section className="hero">
         <div className="wrap hero-grid">
           <div>
-            <p className="eyebrow">Residential cleaning</p>
+            <p className="eyebrow">Your Trusted Cleaning Team</p>
             <h1>A cleaner home, without adding it to your to-do list.</h1>
             <p className="lede">
               JuHen Cleaning Services is a locally owned team for houses,
@@ -82,13 +82,23 @@ export function HomePage() {
           </div>
           <div className="cards">
             {services.map((service) => (
-              <article className="card" key={service.slug}>
+              <Link
+                className="card card-link"
+                to={`/services#${service.slug}`}
+                key={service.slug}
+              >
                 <div className="icon" aria-hidden="true">
                   {service.icon}
                 </div>
                 <h3>{service.title}</h3>
                 <p>{service.copy}</p>
-              </article>
+                <span className="card-link-cue">
+                  View this service
+                  <span className="card-link-arrow" aria-hidden="true">
+                    →
+                  </span>
+                </span>
+              </Link>
             ))}
           </div>
           <p className="section-cta">

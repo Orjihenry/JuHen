@@ -18,8 +18,24 @@ export function Layout() {
 
   useEffect(() => {
     setMenuOpen(false)
-    window.scrollTo(0, 0)
-  }, [location.pathname])
+    const id = location.hash.slice(1)
+
+    if (!id) {
+      window.scrollTo(0, 0)
+      return
+    }
+
+    const frame = window.requestAnimationFrame(() => {
+      const target = document.getElementById(id)
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      } else {
+        window.scrollTo(0, 0)
+      }
+    })
+
+    return () => window.cancelAnimationFrame(frame)
+  }, [location.pathname, location.hash])
 
   return (
     <div className="site">
