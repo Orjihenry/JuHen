@@ -76,8 +76,9 @@ export function HomePage() {
             <p className="eyebrow">Services</p>
             <h2>House cleaning built around how you actually live.</h2>
             <p className="lede">
-              Residential Homes, Offices, Commercial, and Airbnb turnovers. Pricing
-              depends on size, frequency, and the condition of the space.
+              Residential, move-in/out, offices, commercial, and Airbnb
+              turnovers. Pricing depends on size, frequency, and the condition
+              of the space.
             </p>
           </div>
           <div className="cards">

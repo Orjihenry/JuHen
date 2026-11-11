@@ -56,7 +56,6 @@ export const emptyEstimateValues: EstimateValues = {
 export const cleaningTypeOptions = [
   { value: 'standard', label: 'Standard cleaning' },
   { value: 'deep', label: 'Deep cleaning' },
-  { value: 'move-in', label: 'Move-in / move-out' },
   { value: 'construction', label: 'Post-construction' },
   { value: 'biweekly', label: 'Bi-weekly cleaning' },
 ] as const
@@ -209,11 +208,11 @@ export function isWorkplaceService(service: string) {
 const cleaningTypeRate: Record<string, number> = {
   standard: 0,
   deep: 0.35,
-  'move-in': 0.45,
   construction: 0.7,
 }
 
 const serviceExtra: Record<string, number> = {
+  move: 40,
   office: 20,
   commercial: 25,
   airbnb: 30,

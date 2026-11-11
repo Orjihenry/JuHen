@@ -14,6 +14,20 @@ export const services = [
     ],
   },
   {
+    slug: 'move',
+    icon: '⇢',
+    title: 'Move-in / move-out',
+    copy: 'Empty-home and turnover cleans so a space is ready to show, settle into, or hand back to a landlord.',
+    details:
+      'We clean vacant homes and units so they photograph well, pass a walkthrough, or feel ready on moving day. Cabinets, appliances, and floors get the extra attention a lived-in clean skips.',
+    includes: [
+      'Cabinets, drawers, and closet interiors',
+      'Appliances inside and out when accessible',
+      'Floors, windowsills, and bathroom fixtures',
+      'A walkthrough-ready finish for keys or photos',
+    ],
+  },
+  {
     slug: 'office',
     icon: '▣',
     title: 'Office Cleaning',
@@ -104,9 +118,9 @@ export const faqs = [
           'Unless you add them: inside fridge or oven, interior windows, cabinets, laundry, garage, balcony, and green products. We don’t do exterior windows, ironing, decluttering, biohazards, or fire or water damage.',
       },
       {
-        question: 'Offices, shops, or Airbnbs?',
+        question: 'Offices, shops, Airbnbs, or a move?',
         answer:
-          'Yes. Offices and small commercial spaces can be after hours. For turnovers we reset beds, baths, kitchen, and floors. Supply linens if you want beds remade.',
+          'Yes. Offices and small shops can be after hours. Airbnb turnovers reset beds, baths, kitchen, and floors. Move-in/out covers empty homes—cabinets, appliances, and a walkthrough-ready finish.',
       },
     ],
   },
