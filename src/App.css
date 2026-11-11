@@ -25,30 +25,36 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  min-height: 76px;
+  min-height: 88px;
 }
 
 .logo {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 2px;
   text-decoration: none;
   font-family: var(--serif);
-  font-weight: 600;
-  font-size: 1.15rem;
-  letter-spacing: -0.02em;
+  font-weight: 700;
+  text-align: center;
+  color: inherit;
+  flex-shrink: 0;
 }
 
-.logo-mark {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
-  background: var(--teal);
-  color: var(--white);
+.logo-mark-img {
+  width: 38px;
+  height: 46px;
+  object-fit: contain;
+  display: block;
+}
+
+.logo-text {
   display: grid;
-  place-items: center;
-  font-size: 0.78rem;
-  letter-spacing: 0.04em;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.15;
+  text-transform: uppercase;
 }
 
 .nav {
@@ -362,7 +368,7 @@
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 28px;
-  scroll-margin-top: 92px;
+  scroll-margin-top: 108px;
 }
 
 .detail-list {
@@ -1308,11 +1314,19 @@ textarea {
 
 .footer .footer-logo {
   color: #f6f3ec;
+  gap: 8px;
+  width: fit-content;
 }
 
-.footer-logo .logo-mark {
-  background: var(--gold);
-  color: #0a1614;
+.footer-logo .logo-mark-img {
+  width: 56px;
+  height: 68px;
+  filter: brightness(1.12);
+}
+
+.footer-logo .logo-text {
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
 }
 
 .footer h3 {
@@ -1378,13 +1392,6 @@ textarea {
 
   .logo {
     min-width: 0;
-    flex: 1 1 auto;
-  }
-
-  .logo-text {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
   }
 
   .header-cta {
@@ -1409,7 +1416,7 @@ textarea {
   .nav.open {
     display: flex;
     position: absolute;
-    top: 76px;
+    top: 88px;
     left: 0;
     right: 0;
     background: var(--paper);

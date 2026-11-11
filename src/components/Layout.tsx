@@ -42,8 +42,17 @@ export function Layout() {
       <header className={`header${scrolled ? ' scrolled' : ''}`}>
         <div className="wrap header-inner">
           <NavLink className="logo" to="/">
-            <span className="logo-mark">JH</span>
-            <span className="logo-text">JuHen Cleaning</span>
+            <img
+              className="logo-mark-img"
+              src="/logo-mark.png"
+              alt=""
+              width="38"
+              height="46"
+            />
+            <span className="logo-text">
+              <span>JuHen Cleaning</span>
+              <span>Services</span>
+            </span>
           </NavLink>
           <nav className={`nav${menuOpen ? ' open' : ''}`} aria-label="Primary">
             <NavLink to="/" end className={navLinkClass}>
@@ -93,12 +102,21 @@ export function Layout() {
           <div className="footer-grid">
             <div className="footer-brand">
               <NavLink className="logo footer-logo" to="/">
-                <span className="logo-mark">JH</span>
-                JuHen Cleaning
+                <img
+                  className="logo-mark-img"
+                  src="/logo-mark.png"
+                  alt=""
+                  width="56"
+                  height="68"
+                />
+                <span className="logo-text">
+                  <span>JuHen Cleaning</span>
+                  <span>Services</span>
+                </span>
               </NavLink>
               <p>
                 Residential, commercial, and specialty cleaning for spaces that
-                should feel looked after—without you doing it yourself.
+                should feel looked after, without you doing it yourself.
               </p>
               <NavLink className="btn btn-primary" to="/estimate">
                 Free estimate
