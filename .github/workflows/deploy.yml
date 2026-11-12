@@ -1,4 +1,4 @@
-name: Deploy React App to HestiaCP
+name: Build and Deploy React App
 
 on:
   push:
@@ -9,17 +9,25 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Build and Deploy on VPS
-        uses: appleboy/ssh-action@v1.2.0
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install and Build
+        run: |
+          npm ci
+          npm run build
+
+      - name: Upload built files to VPS
+        uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
-          script: |
-            set -e
-            TARGET_DIR="/home/control/web/juhencleaningservices.ca/public_html"
-            cd "$TARGET_DIR"
-            git fetch origin main
-            git reset --hard origin/main
-            npm install
-            npm run build
+          source: "dist/*"
+          target: "/home/control/web/juhencleaningservices.ca/public_html"
+          strip_components: 1
