@@ -1,4 +1,4 @@
-name: Deploy to HestiaCP
+name: Deploy React App to HestiaCP
 
 on:
   push:
@@ -9,7 +9,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Pull latest code on VPS
+      - name: Build and Deploy on VPS
         uses: appleboy/ssh-action@v1.2.0
         with:
           host: ${{ secrets.VPS_HOST }}
@@ -18,12 +18,8 @@ jobs:
           script: |
             set -e
             TARGET_DIR="/home/control/web/juhencleaningservices.ca/public_html"
-            echo "Logged in as: $(whoami)"
             cd "$TARGET_DIR"
-            echo "Working directory: $(pwd)"
-            if [ ! -d ".git" ]; then
-              git init
-              git remote add origin git@github.com:Orjihenry/JuHen.git
-            fi
             git fetch origin main
             git reset --hard origin/main
+            npm install
+            npm run build
