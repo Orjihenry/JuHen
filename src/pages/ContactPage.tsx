@@ -33,8 +33,8 @@ export function ContactPage() {
                 <br />
                 Saturday by appointment
                 <br />
-                <a href="mailto:hello@juhencleaning.com">
-                  hello@juhencleaning.com
+                <a href="mailto:hello@juhencleaningservices.ca">
+                  hello@juhencleaningservices.ca
                 </a>
               </p>
             </div>
