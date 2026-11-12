@@ -160,8 +160,8 @@ export function Layout() {
                 <span>Mon–Fri 8am–6pm</span>
                 <span>Saturday by appointment</span>
                 <a href="tel:+15551203480">(555) 120-3480</a>
-                <a href="mailto:hello@juhencleaning.com">
-                  hello@juhencleaning.com
+                <a href="mailto:hello@juhencleaningservices.ca">
+                  hello@juhencleaningservices.ca
                 </a>
               </div>
             </div>
