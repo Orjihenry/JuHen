@@ -484,7 +484,7 @@ export function EstimateForm() {
             </p>
             <div className="form-actions">
               <button className="btn btn-ghost" type="button" onClick={startAnother}>
-                Request another estimate
+                Request another quote
               </button>
             </div>
           </>

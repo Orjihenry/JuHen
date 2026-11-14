@@ -73,7 +73,7 @@ export function Layout() {
               Contact
             </NavLink>
             <NavLink className="btn btn-primary nav-estimate" to="/estimate">
-              Free estimate
+              Request a quote
             </NavLink>
           </nav>
           <div className="header-cta">
@@ -81,8 +81,8 @@ export function Layout() {
               (555) 120-3480
             </a>
             <NavLink className="btn btn-primary btn-header" to="/estimate">
-              <span className="btn-label-full">Free estimate</span>
-              <span className="btn-label-short">Estimate</span>
+              <span className="btn-label-full">Request a quote</span>
+              <span className="btn-label-short">Quote</span>
             </NavLink>
             <button
               className="theme-toggle"
@@ -141,7 +141,7 @@ export function Layout() {
                 should feel looked after, without you doing it yourself.
               </p>
               <NavLink className="btn btn-primary" to="/estimate">
-                Free estimate
+                Request a quote
               </NavLink>
             </div>
             <div>

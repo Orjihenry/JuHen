@@ -19,7 +19,7 @@ export function HomePage() {
             </p>
             <div className="hero-actions">
               <Link className="btn btn-primary" to="/estimate">
-                Request an estimate
+                Request a quote
               </Link>
               <Link className="btn btn-ghost" to="/services">
                 View services

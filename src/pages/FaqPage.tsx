@@ -92,7 +92,7 @@ export function FaqPage() {
           </div>
           <div className="faq-cta-actions">
             <Link className="btn btn-primary" to="/estimate">
-              Request an estimate
+              Request a quote
             </Link>
             <Link className="btn btn-ghost" to="/contact">
               Contact us
