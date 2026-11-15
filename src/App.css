@@ -901,7 +901,7 @@
 .plan-steps {
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 8px;
   margin: 24px 0 0;
   padding: 0;
@@ -1033,16 +1033,9 @@
   display: none;
 }
 
-.payment-placeholder {
-  background: var(--paper);
-  border: 1px dashed var(--line);
-  border-radius: 12px;
-  padding: 18px 16px;
-}
-
-.payment-placeholder p {
-  color: var(--muted);
-  font-weight: 500;
+.form-error {
+  color: var(--coral);
+  font-weight: 600;
 }
 
 .visually-hidden {

@@ -18,6 +18,7 @@ import {
   toggleAddon,
   type EstimateValues,
 } from '../estimatePricing'
+import { submitEstimate } from '../submitEstimate'
 import { DateCalendar, localDateValue } from './DateCalendar'
 import { PlanSummary } from './PlanSummary'
 import { STEPS } from './estimateSteps'
@@ -27,6 +28,9 @@ const today = localDateValue()
 export function EstimateForm() {
   const [step, setStep] = useState(0)
   const [sent, setSent] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState('')
+  const [honeypot, setHoneypot] = useState('')
   const [values, setValues] = useState<EstimateValues>(emptyEstimateValues)
   const lastStep = STEPS.length - 1
   const current = STEPS[step]
@@ -91,13 +95,16 @@ export function EstimateForm() {
   function startAnother() {
     setValues(emptyEstimateValues)
     setSent(false)
+    setSubmitting(false)
+    setSubmitError('')
+    setHoneypot('')
     setStep(0)
   }
 
-  function onSubmit(event: FormEvent<HTMLFormElement>) {
+  async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
 
-    if (sent) {
+    if (sent || submitting) {
       return
     }
 
@@ -106,11 +113,26 @@ export function EstimateForm() {
     }
 
     if (step < lastStep) {
+      setSubmitError('')
       setStep((currentStep) => currentStep + 1)
       return
     }
 
-    setSent(true)
+    setSubmitting(true)
+    setSubmitError('')
+    setSent(false)
+
+    try {
+      await submitEstimate(values, quote, honeypot)
+      setSent(true)
+    } catch {
+      setSent(false)
+      setSubmitError(
+        'We could not send your request. Please try again or call us.',
+      )
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   return (
@@ -461,20 +483,17 @@ export function EstimateForm() {
               />
             </label>
           </div>
-        </fieldset>
-
-        <fieldset
-          className="form-panel"
-          data-step-panel="3"
-          hidden={sent || step !== 3}
-        >
-          <legend className="visually-hidden">Payment</legend>
-          <div className="payment-placeholder">
-            <p>
-              Card payment will live on this step. For now, send the request
-              and we’ll follow up with your estimate.
-            </p>
-          </div>
+          <label className="visually-hidden" aria-hidden="true">
+            Company website
+            <input
+              name="website"
+              type="text"
+              tabIndex={-1}
+              autoComplete="off"
+              value={honeypot}
+              onChange={(event) => setHoneypot(event.target.value)}
+            />
+          </label>
         </fieldset>
 
         {sent ? (
@@ -494,14 +513,28 @@ export function EstimateForm() {
               <span>Estimated total</span>
               <strong>{money(quote.total)}</strong>
             </div>
+            {submitError ? (
+              <p className="form-error" role="alert">
+                {submitError}
+              </p>
+            ) : null}
             <div className="form-actions">
               {step > 0 ? (
-                <button className="btn btn-ghost" type="button" onClick={goBack}>
+                <button
+                  className="btn btn-ghost"
+                  type="button"
+                  onClick={goBack}
+                  disabled={submitting}
+                >
                   Back
                 </button>
               ) : null}
-              <button className="btn btn-primary" type="submit">
-                {step === lastStep ? 'Send request' : 'Continue'}
+              <button className="btn btn-primary" type="submit" disabled={submitting}>
+                {step === lastStep
+                  ? submitting
+                    ? 'Sending…'
+                    : 'Send request'
+                  : 'Continue'}
               </button>
             </div>
           </>

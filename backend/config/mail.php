@@ -115,4 +115,12 @@ return [
         'name' => env('MAIL_FROM_NAME', env('APP_NAME', 'Laravel')),
     ],
 
+    'quote' => [
+        'to' => env('QUOTE_MAIL_TO'),
+    ],
+
+    'contact' => [
+        'to' => env('CONTACT_MAIL_TO', env('QUOTE_MAIL_TO')),
+    ],
+
 ];

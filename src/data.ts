@@ -193,7 +193,7 @@ export const faqs = [
       {
         question: 'When do I pay?',
         answer:
-          'We confirm the quote first. Payment will sit on the last booking step; until that’s live, we’ll send payment instructions with the estimate.',
+          'We confirm the quote first, then send payment instructions before the visit.',
       },
     ],
   },

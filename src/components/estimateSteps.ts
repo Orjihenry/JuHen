@@ -20,11 +20,4 @@ export const STEPS = [
     heading: 'Your contact details',
     copy: 'We’ll use this to send your estimate and confirm the appointment.',
   },
-  {
-    id: 'payment',
-    title: 'Payment',
-    shortTitle: 'Payment',
-    heading: 'Payment',
-    copy: 'Payment will be collected here in a later update.',
-  },
 ] as const
