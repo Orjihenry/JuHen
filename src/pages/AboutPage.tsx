@@ -3,8 +3,8 @@ import { usePageTitle } from '../usePageTitle'
 
 const values = [
   {
-    title: 'Same faces',
-    copy: 'We keep a small crew so you recognize who is in your home. If someone new is coming, we tell you first.',
+    title: 'Who’s in your home',
+    copy: 'You should recognize who is in your home. If someone new is coming, we tell you first.',
   },
   {
     title: 'No surprise upsells',
@@ -23,11 +23,11 @@ export function AboutPage() {
       <section className="page-hero">
         <div className="wrap">
           <p className="eyebrow">About</p>
-          <h1>Small team. Same faces. Homes that feel looked after.</h1>
+          <h1>Homes that feel looked after.</h1>
           <p className="lede">
-            JuHen started because most busy households do not need a franchise
+            JuHen Cleaning Services started because most busy households do not need a franchise
             script, they need reliable people who show up, do the work, and
-            leave the home ready to live in.
+            leave the home ready to live in. We are a small team of people who are dedicated to providing the best cleaning service possible.
           </p>
         </div>
       </section>
