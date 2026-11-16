@@ -12,6 +12,34 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v5
 
+      - name: Resolve Laravel path
+        env:
+          VPS_TARGET: ${{ secrets.VPS_TARGET }}
+          VPS_BACKEND: ${{ secrets.VPS_BACKEND }}
+        run: |
+          python3 <<'PY'
+          import os
+          from pathlib import Path
+
+          def clean(value: str) -> str:
+              return value.strip().rstrip('/')
+
+          backend = clean(os.environ.get('VPS_BACKEND', ''))
+          target = clean(os.environ.get('VPS_TARGET', ''))
+
+          if not backend:
+              if not target:
+                  raise SystemExit('VPS_TARGET secret is missing')
+              backend = str(Path(target).parent / 'private' / 'backend')
+
+          if any(character in backend for character in ["'", '\n', '\r', '\0']):
+              raise SystemExit('Laravel path contains invalid characters')
+
+          print(f'::add-mask::{backend}')
+          with open(os.environ['GITHUB_ENV'], 'a', encoding='utf-8') as fh:
+              fh.write(f'VPS_BACKEND={backend}\n')
+          PY
+
       - name: Set up Node.js
         uses: actions/setup-node@v5
         with:
@@ -33,20 +61,32 @@ jobs:
         working-directory: backend
         run: composer install --no-dev --optimize-autoloader --no-interaction
 
+      - name: Ensure Laravel directory exists
+        uses: appleboy/ssh-action@v1.0.3
+        env:
+          VPS_BACKEND: ${{ env.VPS_BACKEND }}
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          envs: VPS_BACKEND
+          script: |
+            set -e
+            test -n "$VPS_BACKEND"
+            mkdir -p "$VPS_BACKEND"
+
       - name: Upload Laravel app
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
-          source: "backend/*"
-          target: ${{ secrets.VPS_BACKEND }}
+          source: "backend"
+          target: ${{ env.VPS_BACKEND }}
           strip_components: 1
           overwrite: true
 
       - name: Stage Hestia web root
-        env:
-          VPS_BACKEND: ${{ secrets.VPS_BACKEND }}
         run: |
           python3 <<'PY'
           import os
@@ -54,9 +94,7 @@ jobs:
 
           backend = os.environ.get('VPS_BACKEND', '').strip().rstrip('/')
           if not backend:
-              raise SystemExit('VPS_BACKEND secret is missing')
-          if any(character in backend for character in ["'", '\n', '\r', '\0']):
-              raise SystemExit('VPS_BACKEND contains invalid characters')
+              raise SystemExit('Laravel path was not resolved')
 
           source = Path('backend/hestia/index.php').read_text()
           placeholder = '__JUHEN_BACKEND_PATH__'
@@ -81,13 +119,16 @@ jobs:
 
       - name: Finish Laravel on the server
         uses: appleboy/ssh-action@v1.0.3
+        env:
+          VPS_BACKEND: ${{ env.VPS_BACKEND }}
         with:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
+          envs: VPS_BACKEND
           script: |
             set -e
-            cd "${{ secrets.VPS_BACKEND }}"
+            cd "$VPS_BACKEND"
             mkdir -p storage/framework/{cache,sessions,views} storage/logs bootstrap/cache
             touch database/database.sqlite
             chmod -R ug+rwx storage bootstrap/cache
