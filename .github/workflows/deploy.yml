@@ -45,9 +45,28 @@ jobs:
           overwrite: true
 
       - name: Stage Hestia web root
+        env:
+          VPS_BACKEND: ${{ secrets.VPS_BACKEND }}
         run: |
-          cp backend/hestia/index.php dist/index.php
-          cp backend/hestia/.htaccess dist/.htaccess
+          python3 <<'PY'
+          import os
+          from pathlib import Path
+
+          backend = os.environ.get('VPS_BACKEND', '').strip().rstrip('/')
+          if not backend:
+              raise SystemExit('VPS_BACKEND secret is missing')
+          if any(character in backend for character in ["'", '\n', '\r', '\0']):
+              raise SystemExit('VPS_BACKEND contains invalid characters')
+
+          source = Path('backend/hestia/index.php').read_text()
+          placeholder = '__JUHEN_BACKEND_PATH__'
+          if placeholder not in source:
+              raise SystemExit('index.php is missing the backend path placeholder')
+
+          Path('dist').mkdir(exist_ok=True)
+          Path('dist/index.php').write_text(source.replace(placeholder, backend))
+          Path('dist/.htaccess').write_bytes(Path('backend/hestia/.htaccess').read_bytes())
+          PY
 
       - name: Upload site files
         uses: appleboy/scp-action@v0.1.7
